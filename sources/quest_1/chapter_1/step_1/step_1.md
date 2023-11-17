@@ -21,4 +21,6 @@ Voici comment est identifié un module :
 
 L'adresse du compte peut être stockée dans un alias, ce qui permet de ne pas avoir à la réécrire à chaque fois.
 
+---
+
 À ton tour, crée un module Move nommé "my_shore", l'alias de ton adresse est "robinson".

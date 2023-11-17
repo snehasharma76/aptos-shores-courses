@@ -10,16 +10,15 @@ Voici à quoi ressemble le Global Data dans Move:
 module my_address::my_module {
     
     struct GlobalData has key {
-        value: u64,
-        value_2: u64,
+        
     }
     
 }
 ```
 
-Le Global Data est défini dans un module, comme tout autre type de données. 
+Le Global Data est défini dans un module, comme tout autre type de données.
+Vous avez peut-être remarqué que le Global Data a un attribut spécial : `has key`, nous aborderons ce sujet un peu plus tard.
 
-Nous aborderons les types comme `u64` juste après, pour l'instant, retiens que le Global Data est défini dans un module comme une structure de données
-. Nous aborderons bientôt le mot clé`has key`.
+---
 
-À ton tour, ajoute un Global Data à ton module Move `my_shore` et ajoute la variable `tree` de type `u64` à ton Global Data qui représentera le nombre d'arbres sûr l'ile.
+À ton tour, ajoute un Global Data à ton module Move `my_shore`.
