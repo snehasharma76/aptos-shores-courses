@@ -1,27 +1,35 @@
-# **Utilisation des Booléens en Move**
+# Using Booleans in Move
 
-Le type **`bool`** est essentiel dans tout langage de programmation, y compris Move. Comprendre comment utiliser les valeurs booléennes et les opérations logiques est crucial pour le contrôle du flux du programme.
+The **`bool`** type is essential in any programming language, including Move. Understanding how to use Boolean values and logical operations is crucial to controlling program flow.
 
-## **Les Littéraux Booléens**
+## **Boolean literals**
 
-Les littéraux pour **`bool`** sont simplement **`true`** et **`false`**.
+The literals for **`bool`** are simply **`true`** and **`false`**.
 
-## **Opérations Logiques**
 
-Move supporte trois opérations logiques principales pour le type **`bool`** :
+## **Logical operations**
 
-- **`&&`** : un ET logique à court-circuit (short-circuiting logical and)
-- **`||`** : un OU logique à court-circuit (short-circuiting logical or)
-- **`!`** : une négation logique (logical negation)
 
-## **Contrôle de Flux**
+Move supports three main logical operations for the **`bool`** type:
 
-Les valeurs booléennes sont fréquemment utilisées dans les structures de contrôle de flux en Move, telles que :
+
+- **`&&`**: a short-circuiting logical AND
+- **`||`**: short-circuiting logical OR
+- **`!`**: logical negation
+
+
+## **Flow control**
+
+
+Boolean values are frequently used in Move flow control structures, such as :
+
 
 - **`if (bool) { ... }`**
 - **`while (bool) { ... }`**
 - **`assert!(bool, u64)`**
 
+
 ---
 
-À ton tour, ton île peut avoir une rivière... ou non ? Il faut donc ajouter au module Move `my_shore` une variable `has_river` de type `bool`.
+
+Now it's your turn, can your island have a river... or not? So we need to add a `has_river` variable of type `bool` to the Move `my_shore` module.
