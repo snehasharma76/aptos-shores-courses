@@ -1,5 +1,5 @@
-# Les bases du Move
+# The basics of Move
 
-Le langage Move est un langage de programmation conçu spécifiquement pour la blockchain de Diem (anciennement Libra), une initiative de Facebook dans le domaine des cryptomonnaies. Aujourd'hui, le projet Diem n'existe plus, c'est pourquoi le langage Move est désormais utilisé pour la Blockchain Aptos.
+The Move language is a programming language designed specifically for the Diem (formerly Libra) blockchain, a Facebook initiative in the field of cryptocurrencies. Today, the Diem project no longer exists, which is why the Move language is now used for the Aptos blockchain.
 
-Ce langage se distingue par son accent mis sur la sécurité et l'intégrité dans la manipulation des actifs numériques, ce qui est crucial dans les applications blockchain. Contrairement à d'autres langages de programmation blockchain comme Solidity pour Ethereum, Move permet aux développeurs de définir des types de ressources personnalisés, garantissant ainsi que ces ressources ne peuvent être ni dupliquées ni détruites accidentellement.
+This language stands out for its focus on security and integrity in the handling of digital assets, which is crucial in blockchain applications. Unlike other blockchain programming languages such as Solidity for Ethereum, Move allows developers to define custom resource types, ensuring that these resources can neither be duplicated nor accidentally destroyed.

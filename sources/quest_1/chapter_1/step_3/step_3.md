@@ -1,28 +1,28 @@
-# **Typage des Entiers en Move**
+# Move Integer typing
 
-Le langage de programmation Move offre une variété de types d'entiers non signés pour une gestion précise des données numériques. Ces types d'entiers sont essentiels pour manipuler des valeurs numériques dans divers scénarios de la blockchain. Comprendre ces types et leur utilisation est crucial pour le développement efficace en Move.
+The Move programming language offers a variety of unsigned integer types for precise management of numerical data. These integer types are essential for manipulating numerical values in various blockchain scenarios. Understanding these types and their use is crucial for efficient development in Move.
 
-## **Les Types d'Entiers**
+## **Integer types**
 
-Move supporte six types d'entiers non signés : **`u8`**, **`u16`**, **`u32`**, **`u64`**, **`u128`**, et **`u256`**. Chacun de ces types a une plage de valeurs spécifique, allant de 0 à un maximum dépendant de la taille du type.
+Move supports six unsigned integer types: **`u8`**, **`u16`**, **`u32`**, **`u64`**, **`u128`**, and **`u256`**. Each of these types has a specific range of values, from 0 to a maximum depending on the size of the type.
 
-- **`u8`** : Entier non signé de 8 bits, plage de valeurs de 0 à 2^8 - 1
-- **`u16`** : Entier non signé de 16 bits, plage de valeurs de 0 à 2^16 - 1
-- **`u32`** : Entier non signé de 32 bits, plage de valeurs de 0 à 2^32 - 1
-- **`u64`** : Entier non signé de 64 bits, plage de valeurs de 0 à 2^64 - 1
-- **`u128`** : Entier non signé de 128 bits, plage de valeurs de 0 à 2^128 - 1
-- **`u256`** : Entier non signé de 256 bits, plage de valeurs de 0 à 2^256 - 1
+- **`u8`**: 8-bit unsigned integer, value range 0 to 2^8 - 1
+- **`u16`**: 16-bit unsigned integer, value range 0 to 2^16 - 1
+- **`u32`**: 32-bit unsigned integer, value range 0 to 2^32 - 1
+- **`u64`**: 64-bit unsigned integer, value range 0 to 2^64 - 1
+- **`u128`**: 128-bit unsigned integer, value range 0 to 2^128 - 1
+- **`u256`**: 256-bit unsigned integer, value range 0 to 2^256 - 1
 
-## **Littéraux Numériques**
+## **Numeric literals**
 
-Les littéraux pour ces types peuvent être spécifiés soit en tant que séquence de chiffres (par exemple, 112) ou en tant que littéraux hexadécimaux (par exemple, 0xFF). Le type du littéral peut être optionnellement ajouté comme suffixe (par exemple, 112u8). Si le type n'est pas spécifié, le compilateur tentera d'inférer le type à partir du contexte. En l'absence d'inférence claire, le type par défaut est **`u64`**.
+Literals for these types can be specified either as a sequence of digits (e.g. 112) or as hexadecimal literals (e.g. 0xFF). The type of the literal can optionally be added as a suffix (e.g. 112u8). If the type is not specified, the compiler will attempt to infer the type from the context. In the absence of clear inference, the default type is **`u64`**.
 
-Les littéraux numériques peuvent être séparés par des underscores pour améliorer la lisibilité (par exemple, 1_234_567, 1_000u128, 0xAB_CD_12_35).
+Numeric literals can be separated by underscores to improve readability (for example, 1_234_567, 1_000u128, 0xAB_CD_12_35).
 
-Si un littéral est trop grand pour la plage de son type spécifié (ou inféré), une erreur est signalée.
+If a literal is too large for the range of its specified (or inferred) type, an error is signaled.
 
 ---
 
-À ton tour, nous allons ajouter une variable à notre île pour savoir combien d'arbre se trouve dessus. 
+Now it's your turn to add a variable to our island to find out how many trees are on it.
 
-Pour ce faire, ajoute une variable `nb_trees` de type `u8` à ton module Move `my_shore`.
+To do this, add a `nb_trees` variable of type `u8` to your Move `my_shore` module.

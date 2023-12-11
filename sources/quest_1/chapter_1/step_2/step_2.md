@@ -1,24 +1,24 @@
-# Introduction au Global Data dans Move
+# Introduction to Global Data in Move
 
-Le Global Data est un aspect fondamental dans l'utilisation du langage Move. 
-Sur Aptos, le Global Data fait référence à la manière dont les données sont stockées, gérées et accessibles de manière globale sur la blockchain.
-Toutes les variables dans le Global Data sont stockés sur la Blockchain, toutes les autres ne sont que des variables locales.
+Global Data is a fundamental aspect of the Move language.
+On Aptos, Global Data refers to the way in which data is stored, managed and accessed globally on the blockchain.
+All variables in Global Data are stored on the blockchain, all others are local variables.
 
-Voici à quoi ressemble le Global Data dans Move:
+Here's what the Global Data looks like in Move:
 
 ```move
 module my_address::my_module {
-    
+
     struct GlobalData has key {
         
     }
-    
+
 }
 ```
 
-Le Global Data est défini dans un module, comme tout autre type de données.
-Vous avez peut-être remarqué que le Global Data a un attribut spécial : `has key`, nous aborderons ce sujet un peu plus tard.
+Global Data is defined in a module, just like any other data type.
+You may have noticed that Global Data has a special attribute: `has key`, which we'll cover a little later.
 
 ---
 
-À ton tour, ajoute un Global Data à ton module Move `my_shore`.
+Now it's your turn to add Global Data to your Move `my_shore` module.
