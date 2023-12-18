@@ -1,4 +1,5 @@
 # Basic Function in Move
+
 Function is the only place of execution in Move. Function starts with the `fun` keyword which is followed by function name, parentheses () for arguments and curly braces {} for body.
 
 ```move

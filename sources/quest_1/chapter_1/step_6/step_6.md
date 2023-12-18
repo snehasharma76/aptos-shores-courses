@@ -1,31 +1,33 @@
 # Using Vector in Move
-The **`Vector`** is a collection type that can store elements of a specific type in a sequence.
-## Literals
-## General Vector Literals
-Vectors of any type can be created with vector literals.
-| Syntax                  | Type                                | Description                            |
-|-------------------------|-------------------------------------|----------------------------------------|
-| `vector[]`              | `vector[]: vector<T>`               | An empty vector                        |
-| `vector[e1, ..., en]`   | `vector[e1, ..., en]: vector<T>`    | A vector with n elements (of length n) |
-In these cases, the type of the vector is inferred, either from the element type or from the vector's usage. If the type cannot be inferred, or simply for added clarity, the type can be specified explicitly:
-- `vector<T>[]: vector<T>`: An empty vector of type `vector<T>`, where `T` is any single, non-reference type.
-- `vector<T>[e1, ..., en]: vector<T>`: A vector with `n` elements (of length `n`) of type `vector<T>`, where `e_i: T` such that `0 < i <= n` and `n > 0`.
-# Vector<u8> Literals
-A common use-case for vectors in Move is to represent "byte arrays," which are represented with `vector<u8>`. These values are often used for cryptographic purposes, such as a public key or a hash result. Specific syntax is provided to make these values more readable, as opposed to having to use `vector[]` where each individual `u8` value is specified in numeric form.
-## Byte Strings
-Byte strings are quoted string literals prefixed by a `b`, e.g. `b"Hello!\n"`.
-These are ASCII encoded strings that allow for escape sequences. Currently, the supported escape sequences are:
-- `\n`: New line (or Line feed)
-- `\r`: Carriage return
-- `\t`: Tab
-- `\\`: Backslash
-- `\0`: Null
-- `\"`: Quote
-- `\xHH`: Hex escape, inserts the hex byte sequence HH
 
-## Hex Strings
-Hex strings are quoted string literals prefixed by an `x`, e.g. `x"48656C6C6F210A"`.
-Each byte pair, ranging from 00 to FF, is interpreted as a hex-encoded `u8` value. So, each byte pair corresponds to a single entry in the resulting `vector<u8>`.
+**What is a Vector?**
+
+Think of a `vector` like a list that can hold items in a specific order of specific type.
+
+**Creating Vectors:** We can create variety of vectors for example:
+
+ -   An empty vector: `vector[]` or `vector<T>[]`, where `T` is any non-reference type.
+
+-   A vector with elements: `vector[e1, ..., en]` or `vector<T>[e1, ..., en]`, where `n` is the number of elements.
+
+ **Special Case: Byte Arrays with `vector<u8>`:**
+
+-   Vectors of bytes are common, often used for things like public keys or hash results. We are particularly talking about two different categories `Byte Strings` and `Hex Strings`.
+
+    -   Byte strings: Quoted string literals with a `b` prefix, like `b"Hello!\n"`.
+
+    -   Hex strings: Quoted string literals with an `x` prefix, like `x"48656C6C6F210A"`. Each pair of characters represents a byte in hexadecimal form. 
+
+Wondering what `\n` in the previous example is 👀 ? 
+
+These are nothing but escape sequences that are used along with these byte/hex strings for representation purposes.
+
+ A few other example of escape Sequences in Byte Strings are - 
+-   `\n`: New line
+-   `\r`: Carriage return
+-   `\t`: Tab
+-   `\xHH`: Hex escape, where `HH` represents a hexadecimal byte, etc.
+
 
 --- 
 
