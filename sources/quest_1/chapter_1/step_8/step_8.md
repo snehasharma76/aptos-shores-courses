@@ -20,7 +20,7 @@
 
 ---
 
-Now it's our turn to add the `signer` as a parameter to our function `shore` and check if the signer of the function `shore` is equal to address of `@0x42` using `signer::address_of(&s) == @0x42`.
+Now it's our turn to add the `signer` as a parameter to our function `shores` and check if the signer of the function `shores` is equal to address of `@0x42` using `signer::address_of(&s) == @0x42`.
 
 ---
 

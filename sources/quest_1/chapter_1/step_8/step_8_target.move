@@ -1,3 +1,4 @@
+use  std::signer;
 module robinson::my_shore {
 
     struct GlobalData has key {
@@ -6,7 +7,7 @@ module robinson::my_shore {
         shore_location: address,
         nb_trees: vector<u8>,
     }
-    use  std::signer;
+    
     fun shores(s: signer) {
         assert!(signer::address_of(&s) == @0x42, 0);
     }
