@@ -8,7 +8,7 @@ module robinson::my_shore {
         animal: vector<u8>,
     }
 
-    struct House has store , drop{
+    struct House has store, drop{
         no_of_members : u8,
         house_location : address,
         house_owner : address,
@@ -18,8 +18,10 @@ module robinson::my_shore {
         assert!(signer::address_of(&s) == @0x42, 0);
         let _house = House{
             no_of_members : members,
-            house_loacation : location,
+            house_location : location,
             house_owner:signer::address_of(&s)
         };
     }
+    //declare a function "add_trees" to add a "mutable reference" to the GlobalData struct .
+    // increase the number of trees( nb_tree) by `1`.
 }
