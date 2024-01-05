@@ -8,6 +8,7 @@ module robinson::my_shore {
         has_river: bool,
         shore_location: address,
         animal: vector<u8>,
+        // Add a island_name var with type String
     }
 
     struct House has store, drop{

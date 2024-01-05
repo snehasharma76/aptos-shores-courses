@@ -47,6 +47,6 @@ module robinson::my_shore {
         (food, log);
     }
 
-    // add a function cut_tree that increases the value of "log" variable by '5x' and decreases the value of food by '2x'
+    // add a function "cut_tree" with parameters "tree" and "r" to add mutable reference to the "GlobalData" struct and "Resources" struct respectively that increases the value of "log" variable by '5x' and decreases the value of food by '2x'
 }
 

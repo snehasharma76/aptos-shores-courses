@@ -7,7 +7,7 @@ module robinson::my_shore {
         animal: vector<u8>,
     }
 
-    struct House has store{
+    struct House has store { 
         no_of_members : u8,
         house_location : address,
         house_owner : address,

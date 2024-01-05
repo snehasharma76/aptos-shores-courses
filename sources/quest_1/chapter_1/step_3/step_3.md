@@ -25,4 +25,4 @@ If a literal is too large for the range of its specified (or inferred) type, an 
 
 Now it's your turn to add a variable to our island to find out how many trees are on it.
 
-To do this, add a `animal` variable of type `u8` to your Move `my_shore` module.
+To do this, add a `nb_tree` variable of type `u8` to your Move `my_shore` module.
