@@ -1,11 +1,12 @@
-use std::signer;
 module robinson::my_shore {
+
+    use std::signer;
 
     struct GlobalData has key {
         nb_tree: u8,
         has_river: bool,
         shore_location: address,
-        animal: vector<u8>,
+        daily_visitors: vector<u64>,
     }
     
     fun shores(s: signer) {

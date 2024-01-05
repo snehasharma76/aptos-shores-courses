@@ -1,18 +1,23 @@
-use std::signer;
 module robinson::my_shore {
 
+    use std::signer;
     
     struct GlobalData has key {
         nb_tree: u8,
         has_river: bool,
         shore_location: address,
-        animal: vector<u8>,
+        daily_visitors: vector<u64>,
     }
 
     struct House has store, drop{
         no_of_members : u8,
         house_location : address,
         house_owner : address
+    }
+
+    struct Resources has store, drop{
+        food: u64,
+        log: u64
     }
 
     fun init_house(s: signer, members: u8, location: address) {
@@ -30,10 +35,6 @@ module robinson::my_shore {
         data.nb_tree = data.nb_tree + 1
     }
 
-    struct Resources has store, drop{
-    food: u64,
-    log: u64
-}
 
     fun init_resource() {
         let _resources = Resources {
@@ -44,7 +45,7 @@ module robinson::my_shore {
 
     fun resources_avail( r: &Resources ) : (u64, u64) {
         let (food, log) = (r.food, r.log);
-        (food, log);
+        (food, log)
     }
 
     // add a function "cut_tree" with parameters "tree" and "r" to add mutable reference to the "GlobalData" struct and "Resources" struct respectively that increases the value of "log" variable by '5x' and decreases the value of food by '2x'

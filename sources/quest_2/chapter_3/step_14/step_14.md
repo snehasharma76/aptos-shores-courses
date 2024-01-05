@@ -37,4 +37,4 @@ module my_addrx::Strings {
 In the first example, the `String` type from the string module is used to handle strings, and in the second example, `vector<u8>` is used to represent byte strings. The test functions demonstrate how to use and print these strings or byte strings in Move.
 
 ---
-Go to the island and add a name to it. We have named it "SHUJU".
+Go to the island and add a name to it. We have named it `SHUJU`.

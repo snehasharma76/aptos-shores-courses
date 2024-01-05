@@ -1,11 +1,12 @@
-use std::signer;
 module robinson::my_shore {
+
+    use std::signer;
 
     struct GlobalData has key {
         nb_tree: u8,
         has_river: bool,
         shore_location: address,
-        animal: vector<u8>,
+        daily_visitors: vector<u64>,
     }
 
     struct House has store, drop{
@@ -28,13 +29,3 @@ module robinson::my_shore {
         data.nb_tree = data.nb_tree + 1
     }
 }
-
-
-
-
-
-
-
-
-
-

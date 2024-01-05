@@ -4,7 +4,7 @@ module robinson::my_shore {
         nb_tree: u8,
         has_river: bool,
         shore_location: address,
-        // add "animal" var with "vector<u8>" type 
+        // add "daily_visitors" var with "vector<u64>" type 
 
     }
 

@@ -56,4 +56,4 @@ This section is given for information purpose, we will see the implementation of
 
 ---
 
-Playing with numbers it is! Declare a function cut_tree that increases the value of "log" variable by '5x' and decreases the value of food by '2x'. 
+Playing with numbers it is! Declare a function cut_tree that increases the value of `log` variable by `5x` and decreases the value of `food` by `2x`. 

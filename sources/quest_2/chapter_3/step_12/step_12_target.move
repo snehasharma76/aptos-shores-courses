@@ -1,12 +1,12 @@
-use std::signer;
 module robinson::my_shore {
 
-    
+    use std::signer;
+
     struct GlobalData has key {
         nb_tree: u8,
         has_river: bool,
         shore_location: address,
-        animal: vector<u8>,
+        daily_visitors: vector<u64>,
     }
 
     struct House has store, drop{
@@ -44,7 +44,7 @@ module robinson::my_shore {
 
     fun resources_avail( r: &Resources ) : (u64, u64) {
         let (food, log) = (r.food, r.log);
-        (food, log);
+        (food, log)
     }
 
 }

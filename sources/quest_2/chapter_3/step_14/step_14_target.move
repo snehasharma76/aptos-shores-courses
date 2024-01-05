@@ -1,14 +1,13 @@
-use std::signer;
-use std::string::{String,utf8};
-
 module robinson::my_shore {
 
-    
-    struct GlobalData has key {
+    use std::signer;
+    use std::string::{String,utf8};
+
+    struct GlobalData has key, drop {
         nb_tree: u8,
         has_river: bool,
         shore_location: address,
-        animal: vector<u8>,
+        daily_visitors: vector<u64>,
         island_name: String,
     }
 
@@ -17,6 +16,11 @@ module robinson::my_shore {
         house_location : address,
         house_owner : address
     }
+
+    struct Resources has store, drop{
+        food: u64,
+        log: u64
+    }   
 
     fun init_house(s: signer, members: u8, location: address) {
         assert!(signer::address_of(&s) == @0x42, 0);
@@ -33,21 +37,16 @@ module robinson::my_shore {
         data.nb_tree = data.nb_tree + 1
     }
 
-    struct Resources has store, drop{
-    food: u64,
-    log: u64
-}
-
     fun init_resource() {
         let _resources = Resources {
-        food: 1,
-        log: 2
-    };
-}
+            food: 1,
+            log: 2
+        };
+    }
 
     fun resources_avail( r: &Resources ) : (u64, u64) {
         let (food, log) = (r.food, r.log);
-        (food, log);
+        (food, log)
     }
 
     fun cut_tree(tree: &mut GlobalData, r: &mut Resources){
@@ -62,9 +61,9 @@ module robinson::my_shore {
             nb_tree: 10,
             has_river: true,
             shore_location: @0x42,
-            animal: b"monkey",
+            daily_visitors: b"monkey",
             island_name: utf8(b"SHUJU"),    
-        } 
+        }; 
     }
 
 }

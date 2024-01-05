@@ -1,13 +1,13 @@
-use std::signer;
-
 module robinson::my_shore {
-
     
-    struct GlobalData has key {
+    use std::signer;
+    // import utf8 module from standard library string module
+
+    struct GlobalData has key { // add drop ability to the "GlobalData" struct
         nb_tree: u8,
         has_river: bool,
         shore_location: address,
-        animal: vector<u8>,
+        daily_visitors: vector<u64>,
         // Add a island_name var with type String
     }
 
@@ -16,6 +16,11 @@ module robinson::my_shore {
         house_location : address,
         house_owner : address
     }
+
+    struct Resources has store, drop{
+        food: u64,
+        log: u64
+    }   
 
     fun init_house(s: signer, members: u8, location: address) {
         assert!(signer::address_of(&s) == @0x42, 0);
@@ -31,11 +36,6 @@ module robinson::my_shore {
 
         data.nb_tree = data.nb_tree + 1
     }
-
-    struct Resources has store, drop{
-    food: u64,
-    log: u64
-}
 
     fun init_resource() {
         let _resources = Resources {
