@@ -31,4 +31,4 @@ These are nothing but escape sequences that are used along with these byte/hex s
 
 --- 
 
-Now it's your turn, let's add more trees to your Island....So we need to add `nb_trees` variable of type `vector<u8>` to the Move `my_shore` module. (edited) 
+Now it's your turn, let's add more daily_visitors to your Island....So we need to add `daily_visitors` variable of type `vector<u64>` to the Move `my_shore` module.

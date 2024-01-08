@@ -7,4 +7,9 @@ module robinson::my_shore {
         daily_visitors: vector<u64>,
     }
 
+    struct House has store { 
+        no_of_members : u8,
+        house_location : address,
+        house_owner : address,
+    }
 }
