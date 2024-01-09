@@ -2,6 +2,7 @@ module robinson::my_shore {
 
     use std::signer;
     use std::string::{String,utf8};
+    use std::vector;
 
     struct GlobalData has key, drop {
         nb_tree: u8,
@@ -57,11 +58,13 @@ module robinson::my_shore {
     }
     
     fun init_GlobalData(){
+        let vec = vector::empty();
+        vector::push_back(&mut vec, 40);
         let globalData = GlobalData{
             nb_tree: 10,
             has_river: true,
             shore_location: @0x42,
-            daily_visitors: b"monkey",
+            daily_visitors: vec,
             island_name: utf8(b"SHUJU"),    
         }; 
     }

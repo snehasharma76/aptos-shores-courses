@@ -2,6 +2,7 @@ module robinson::my_shore {
     
     use std::signer;
     // import utf8 module from standard library string module
+    // import vector module from standard library
 
     struct GlobalData has key { // add drop ability to the "GlobalData" struct
         nb_tree: u8,

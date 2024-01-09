@@ -2,7 +2,8 @@ module robinson::my_shore {
 
     use std::signer;
     use std::string::{String,utf8};
-
+    use std::vector;
+    
     struct GlobalData has key, drop {
         nb_tree: u8,
         has_river: bool,
@@ -56,15 +57,19 @@ module robinson::my_shore {
         r.food = r.food / 2;
     }
     
-    fun init_GlobalData(){
+   fun init_GlobalData(){
+        let vec = vector::empty();
+        vector::push_back(&mut vec, 40);
         let globalData = GlobalData{
             nb_tree: 10,
             has_river: true,
             shore_location: @0x42,
-            daily_visitors: b"monkey",
+            daily_visitors: vec,
             island_name: utf8(b"SHUJU"),    
         }; 
     }
+
+    // create a function named `resource_day` and declare two local variables `food_day` and `log_day` and assign `10` and `5` respectively
 
 }
 
