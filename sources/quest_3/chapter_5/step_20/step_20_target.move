@@ -3,7 +3,8 @@ module robinson::my_shore {
     use std::signer;
     use std::string::{String,utf8};
     use std::vector;
-    use std:: error;
+    use std::error;
+    use std::bcs
 
     const RESOURCE_SHORTAGE: u64 = 1;
 
