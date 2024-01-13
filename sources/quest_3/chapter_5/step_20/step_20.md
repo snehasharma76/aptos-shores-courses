@@ -1,28 +1,34 @@
 ### Understanding Signer in Move
 
-In Move, a signer represents the account address that signs a transaction. Here are some key points about signers:
+In Move, a signer is like a key that authorizes transactions or operations on the blockchain. Here's a simple breakdown:
 
+- **Representation:** A signer is a type indicating who has the authority to control a resource. It's defined with an address field:
+
+  ```move
+  struct signer has drop {
+      a: address
+  }
+  ```
+- **Signer Operations:**
+  - `signer::address_of(&signer)`: Gets the address from the signer.
+  - `signer::borrow_address(&signer)`: Gets a reference to the address.
 - **Transaction Signers:** The signers of a transaction are specified when the transaction is submitted to the Move blockchain.
-- **Signer Type:** Inside a Move module, signers are represented by the `signer` type. This type is a resource struct that contains the address of the signer.
-- **Resource Struct:** The `signer` type is a resource struct, which means it can be owned, moved, and borrowed in Move programs.
 - **Function Arguments:** Functions in Move can take signer arguments, allowing them to check who is calling them. This is crucial for enforcing permissions and authorization.
-- **Address Extraction:** The `signer::address_of` function is used to extract the address from a signer. This address can be further used for validation and permission checks.
 
 #### Example: Using Signer in Move
 
 ```move
-  public fun example(s: signer) {
-    let signer_address = signer::address_of(&s);
-    assert!(signer_address == @0x42, 0);
-    let r = R { address: signer::address_of(&s) };
-  }
+fun example(s: signer) {
+        let signer_address = signer::address_of(&s);
+        assert!(signer_address == @0x42, 0);
+        let _caller_address = signer_address;
+    }
 ```
 In this example:
 - The `example` function takes a signer argument `s`.
 - It extracts the actual address from the signer using `signer::address_of`.
 - The address is checked against an expected value, ensuring authorization.
-- The address is then stored in a resource struct `R`.
-So, in summary, signer arguments in Move allow functions to check who called them, enabling the enforcement of permissions and access control based on the signer's identity.
+- The address is then stored in a `_caller_address variable`.
 
 ---
 

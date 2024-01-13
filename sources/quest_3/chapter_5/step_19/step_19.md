@@ -7,7 +7,6 @@ The assert construct in Move provides a way to validate conditions and abort exe
 - **Validation of Assumptions:** Asserts are crucial for validating assumptions, invariants, and program state during execution.
 - **State Reversion:** Unlike aborts triggered by other mechanisms, an abort on an assert does not revert any state changes. The transaction error is surfaced as usual.
 - **Bug Detection:** Asserts play a significant role in catching bugs and errors during testing and development. They help ensure that the program adheres to expected conditions.
-- **Production Efficiency:** While useful during development, asserts can be disabled in production to enhance efficiency and reduce unnecessary runtime checks.
 
 ### Syntax:
 
