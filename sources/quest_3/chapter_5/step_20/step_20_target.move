@@ -3,6 +3,10 @@ module robinson::my_shore {
     use std::signer;
     use std::string::{String,utf8};
     use std::vector;
+    use std::error;
+    use std::bcs;
+
+    const RESOURCE_SHORTAGE: u64 = 1;
 
     struct GlobalData has key, drop {
         nb_tree: u8,
@@ -68,6 +72,46 @@ module robinson::my_shore {
             island_name: utf8(b"SHUJU"),    
         }; 
     }
+    
+    fun resource_day() : (u64, u64){
+        let food_day: u64 = 10;
+        let log_day: u64 = 5;
+        (food_day, log_day)
+    }
 
+    fun check_resource(): bool {
+        let (daily_food, daily_log) = resource_day();
+        if (daily_food == 10 && daily_log != 6 ){
+            true
+        }
+        else{
+            false
+        }
+    }
+
+    fun check_resourceShortage(r: &Resources){
+        let (daily_food, daily_log) = resource_day();
+        let (total_food, total_log) = resources_avail(r);
+        assert!((total_food>= daily_food && total_log>=daily_log), error:: not_found(RESOURCE_SHORTAGE));
+    }
+    
+    // fun add_member(h: &mut House){ 
+    //    if(h.no_of_members >= 4)
+    //   {
+    //       abort 0;
+    //   }
+    //   h.no_of_members = h.no_of_members + 1;
+    // }
+
+    fun add_member(h: &mut House){ 
+        assert! (h.no_of_members >= 4, 0);
+        h.no_of_members = h.no_of_members + 1;
+    }
+    
+   fun change_name(new_name: String, data: &mut GlobalData, s: signer){
+        assert!(signer::address_of(&s) == @0x42, 0);
+        let byte: vector<u8> = bcs::to_bytes(&new_name);
+        data.island_name = utf8(byte);
+    }
 }
 

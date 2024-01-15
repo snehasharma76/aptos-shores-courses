@@ -68,6 +68,16 @@ module robinson::my_shore {
             island_name: utf8(b"SHUJU"),    
         }; 
     }
-
+    
+    fun resource_day() : (u64, u64){
+        let food_day: u64 = 10;
+        let log_day: u64 = 5;
+        (food_day, log_day)
+    }
+    
+    // declare a function named `check_resource` in which you call the `resource_day` function assigning it to `daily_food` and `daily_log` respectively to check if the value of `food` is equal to `10` and value of `log` is not equal to `6`.
+    // you have to return true if both conditions are true else return false.
+    
+    
 }
 

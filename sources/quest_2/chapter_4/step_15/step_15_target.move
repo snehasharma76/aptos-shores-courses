@@ -68,6 +68,13 @@ module robinson::my_shore {
             island_name: utf8(b"SHUJU"),    
         }; 
     }
+    
+    fun resource_day() : (u64, u64){
+        let food_day: u64 = 10;
+        let log_day: u64 = 5;
+        (food_day, log_day)
 
+    }
+    
 }
 

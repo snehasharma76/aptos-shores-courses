@@ -18,5 +18,11 @@ fun test(arg1: u64, arg2: 64) {
 
 Here `arg1` of type `u64` and `arg1` of type `u64` are the two parameters declared as a part of the function.
 
+
+**Note:** If a variable is not used, it must be named with a _ suffix to avoid compilation errors. 
+
+Concept : Using `_` acknowledges that the variable is intentionally not being used. We will talk more about this in the later chapter once we start dealing with local variables.
+
+
 ---
-Let us play around with the function a little more, create a function named `init_house` with parameters to initialise the house struct. We will cover signers in detail shortly.
+Let us play around with the function a little more, create a function named init_house with parameters to initialise the house struct. The parameters are named s for the signer, as well as members and location. I'll let you guess their type! This function must initialize a house... with all its parameters!
