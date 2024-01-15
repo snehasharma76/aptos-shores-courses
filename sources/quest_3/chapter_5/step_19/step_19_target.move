@@ -99,7 +99,7 @@ module robinson::my_shore {
     //   {
     //       abort 0;
     //   }
-    //   h.no_of_members+= 1;
+    //   h.no_of_members= h.no_of_members + 1;
     // }
 
     fun add_member(h: &mut House){ 

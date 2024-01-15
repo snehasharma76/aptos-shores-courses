@@ -99,7 +99,7 @@ module robinson::my_shore {
         {
             abort 0;
         }
-        h.no_of_members+= 1;
+       h.no_of_members = h.no_of_members + 1;
     }
      
     // create a function `add_member` which takes a parameter `h` for mutable reference to the struct `House`.

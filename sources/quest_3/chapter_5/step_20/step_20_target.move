@@ -4,7 +4,7 @@ module robinson::my_shore {
     use std::string::{String,utf8};
     use std::vector;
     use std::error;
-    use std::bcs
+    use std::bcs;
 
     const RESOURCE_SHORTAGE: u64 = 1;
 
@@ -100,11 +100,11 @@ module robinson::my_shore {
     //   {
     //       abort 0;
     //   }
-    //   h.no_of_members+= 1;
+    //   h.no_of_members = h.no_of_members + 1;
     // }
 
     fun add_member(h: &mut House){ 
-        assert! (h.no_of_members >= 4, 0)
+        assert! (h.no_of_members >= 4, 0);
         h.no_of_members = h.no_of_members + 1;
     }
     
