@@ -3,7 +3,8 @@ module robinson::my_shore {
     use std::signer;
     use std::string::{String,utf8};
     use std::vector;
-    use std:: error;
+    use std::error;
+    use std::bcs;
 
     const E_RESOURCE_SHORTAGE: u64 = 1;
 
@@ -94,8 +95,25 @@ module robinson::my_shore {
         assert!((total_food>= daily_food && total_log>=daily_log), error:: not_found(RESOURCE_SHORTAGE));
     }
     
-    // create a function `add_member` which takes a parameter `h` for mutable reference to the struct `House`.
-    // write the code to check the condition if `no_of_members >= 4` the execution will abort with code `0` else it will increment the `no_of_members` by 1.
+    // fun add_member(h: &mut House){ 
+    //    if(h.no_of_members >= 4)
+    //   {
+    //       abort 0;
+    //   }
+    //   h.no_of_members = h.no_of_members + 1;
+    // }
 
+    fun add_member(h: &mut House){ 
+        assert! (h.no_of_members >= 4, 0);
+        h.no_of_members = h.no_of_members + 1;
+    }
+    
+   fun change_name(new_name: String, data: &mut GlobalData, s: signer){
+        assert!(signer::address_of(&s) == @0x42, 0);
+        let byte: vector<u8> = bcs::to_bytes(&new_name);
+        data.island_name = utf8(byte);
+    }
+
+    const min_trees: u64 = 20;
 }
 

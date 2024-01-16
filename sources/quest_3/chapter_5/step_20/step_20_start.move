@@ -6,7 +6,7 @@ module robinson::my_shore {
     use std::error;
     // import bcs module from standard library
 
-    const RESOURCE_SHORTAGE: u64 = 1;
+    const E_RESOURCE_SHORTAGE: u64 = 1;
 
     struct GlobalData has key, drop {
         nb_tree: u8,

@@ -5,7 +5,7 @@ module robinson::my_shore {
     use std::vector;
     use std:: error;
 
-    const RESOURCE_SHORTAGE: u64 = 1;
+    const E_RESOURCE_SHORTAGE: u64 = 1;
 
     struct GlobalData has key, drop {
         nb_tree: u8,

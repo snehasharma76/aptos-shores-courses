@@ -86,7 +86,7 @@ module robinson::my_shore {
         }
     }
 
-    const RESOURCE_SHORTAGE: u64 = 1;
+    const E_RESOURCE_SHORTAGE: u64 = 1;
     fun check_resourceShortage(r: &Resources){
         let (daily_food, daily_log) = resource_day();
         let (total_food, total_log) = resources_avail(r);
