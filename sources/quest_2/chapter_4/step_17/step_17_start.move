@@ -86,7 +86,7 @@ module robinson::my_shore {
         }
     }
     
-    // declare a constant named `RESOURCE_SHORTAGE` of type `u64` which will store the error code `1`.
+    // declare a constant named `E_RESOURCE_SHORTAGE` of type `u64` which will store the error code `1`.
     // create a function named `check_resourceShortage` to check if the values mentioned in resources_avail is greater than or equal to the values given in resource_day if not, throw an error.
     // the parameter used in the function will be the same as we did for `resources_avail` i.e. `r`.
 

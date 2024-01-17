@@ -92,7 +92,7 @@ module robinson::my_shore {
     fun check_resourceShortage(r: &Resources){
         let (daily_food, daily_log) = resource_day();
         let (total_food, total_log) = resources_avail(r);
-        assert!((total_food>= daily_food && total_log>=daily_log), error:: not_found(RESOURCE_SHORTAGE));
+        assert!((total_food>= daily_food && total_log>=daily_log), error:: not_found(E_RESOURCE_SHORTAGE));
     }
     
     // fun add_member(h: &mut House){ 
@@ -114,6 +114,6 @@ module robinson::my_shore {
         data.island_name = utf8(byte);
     }
 
-    // declare a constant named `min_tress` of type `u64` and assign a value 20 to it.
+    // declare a constant named `Min_tress` of type `u8` and assign a value 20 to it.
 }
 

@@ -34,4 +34,4 @@ const 1st: u8 = 10; // No numbers first
 Programming Tip 💡: - Give constants clear meaningful names representing their purpose for easier understanding.
 
 ---
-It is time for you to declare a constant `min_tress` of type `u64` and assign a value 20 to it.
+It is time for you to declare a constant `Min_tress` of type `u8` and assign a value 20 to it.
