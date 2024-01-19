@@ -7,7 +7,7 @@ module robinson::my_shore {
     use std::bcs;
 
     const E_RESOURCE_SHORTAGE: u64 = 1;
-    const min_trees: u64 = 20;
+    const Min_trees: u8 = 20;
 
     struct GlobalData has key, drop {
         nb_tree: u8,
@@ -15,6 +15,7 @@ module robinson::my_shore {
         shore_location: address,
         daily_visitors: vector<u64>,
         island_name: String,
+        nb_house: u64,
     }
 
     struct House has store, drop{
@@ -70,7 +71,8 @@ module robinson::my_shore {
             has_river: true,
             shore_location: @0x42,
             daily_visitors: vec,
-            island_name: utf8(b"SHUJU"),    
+            island_name: utf8(b"SHUJU"), 
+            nb_house: 1,   
         }; 
     }
     
@@ -93,7 +95,7 @@ module robinson::my_shore {
     fun check_resourceShortage(r: &Resources){
         let (daily_food, daily_log) = resource_day();
         let (total_food, total_log) = resources_avail(r);
-        assert!((total_food>= daily_food && total_log>=daily_log), error:: not_found(RESOURCE_SHORTAGE));
+        assert!((total_food>= daily_food && total_log>=daily_log), error:: not_found(E_RESOURCE_SHORTAGE));
     }
     
     // fun add_member(h: &mut House){ 
@@ -115,6 +117,14 @@ module robinson::my_shore {
         data.island_name = utf8(byte);
     }
 
-    
+    fun build_house(data: &mut GlobalData){
+        if(data.nb_tree < 5){
+            data.nb_tree = data.nb_tree + 1;
+        }
+        else {
+            data.nb_house = data.nb_house + 1;
+            data.nb_tree = data.nb_tree - Min_trees;
+        }
+    }
 }
 
