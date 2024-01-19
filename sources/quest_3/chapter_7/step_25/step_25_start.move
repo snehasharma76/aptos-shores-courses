@@ -131,6 +131,11 @@ module robinson::my_shore {
         }
     }
 
+     fun print_welcomeMessage(){
+        let welcomeMessage = utf8(b"Welcome to our Island");
+        print(&welcomeMessage);
+    }
+
     // create a function `print_dailyVisitors` which takes a parameter `data` that acts as an immutable reference to `GlobalData` struct
     // declare a variable `vec` of type `vector<u64>` that stores `daily_visitors`
     // declare another variable `len` that stores the length of the previously declared vector `vec`

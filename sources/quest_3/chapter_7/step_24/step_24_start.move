@@ -129,7 +129,7 @@ module robinson::my_shore {
         }
     }
 
-    // create a function print_welcomeMessage
+    // create a function `print_welcomeMessage`
     // declare a variable `welcomeMessage` containing value "Welcome to our Island";
     // print welcomeMessage 
 

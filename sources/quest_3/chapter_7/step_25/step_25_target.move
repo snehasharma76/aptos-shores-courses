@@ -131,6 +131,11 @@ module robinson::my_shore {
         }
     }
 
+     fun print_welcomeMessage(){
+        let welcomeMessage = utf8(b"Welcome to our Island");
+        print(&welcomeMessage);
+    }
+
     fun print_dailyVisitors(data: &GlobalData){
         let vec:vector<u64> = data.daily_visitors;
         let len:u64 = vector::length(&vec);
