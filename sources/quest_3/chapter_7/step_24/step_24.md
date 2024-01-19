@@ -16,19 +16,6 @@ debug::print(&x);
 ```
 Make sure to use the `&` reference.
 
-#### Printing Structs
-
-Custom structs can be printed if they implement `Debug` ability:
-
-```move
-struct Point has Debug { x: u64, y: u64 }
-fun main() {
-  let p = Point{x: 10, y: 20};
-  debug::print(&p)
-}
-```
-This prints the struct fields.
-
 In summary, `debug::print` is your basic tool for printing in Move during testing and debugging. For production logging, emit events instead.
 
 ---
