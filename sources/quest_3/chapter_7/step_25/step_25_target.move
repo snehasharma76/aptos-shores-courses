@@ -136,7 +136,20 @@ module robinson::my_shore {
         print(&welcomeMessage);
     }
 
-    fun print_dailyVisitors(data: &GlobalData){
+    fun print_dailyVisitors_usingloop(data: &GlobalData){
+        let vec:vector<u64> = data.daily_visitors;
+        let len:u64 = vector::length(&vec);
+        let i = 0;
+        loop {
+            if (i < len) continue;
+            if (i >= len) break;
+            let visitor_today = vector::borrow(&vec, i);
+            print(visitor_today);
+            i = i + 1;
+        };
+    }
+
+    fun print_dailyVisitors_usingwhile(data: &GlobalData){
         let vec:vector<u64> = data.daily_visitors;
         let len:u64 = vector::length(&vec);
         let i = 0;
