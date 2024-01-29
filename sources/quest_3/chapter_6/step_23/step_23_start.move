@@ -5,6 +5,7 @@ module robinson::my_shore {
     use std::vector;
     use std::error;
     use std::bcs;
+    // import print from debug module of the standard library
 
     const E_RESOURCE_SHORTAGE: u64 = 1;
     const Min_trees: u8 = 20;
@@ -117,7 +118,6 @@ module robinson::my_shore {
         data.island_name = utf8(byte);
     }
 
-    // Add a multi-line comment explaining what this function implements. Adding comments is a good coding Practice.
     fun build_house(data: &mut GlobalData){
         if(data.nb_tree < 5){
             data.nb_tree = data.nb_tree + 1;
@@ -127,6 +127,12 @@ module robinson::my_shore {
             data.nb_tree = data.nb_tree - Min_trees;
         }
     }
+
+    // create a function `print_welcomeMessage`
+    // declare a variable `welcomeMessage` containing value "Welcome to our Island";
+    // print welcomeMessage 
+
+
 
 }
 
