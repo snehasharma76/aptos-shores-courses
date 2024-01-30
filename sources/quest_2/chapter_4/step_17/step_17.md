@@ -40,6 +40,6 @@ const E_INSUFFICIENT_BALANCE = 0x1001;
 Robust error handling is key for mission critical Move applications. Following these patterns helps create resilient code.
 
 ---
-Let's get to work and write some code. Declare a constant named `RESOURCE_SHORTAGE` of type `u64` which will store the error code `1`also create a function named `check_resourceShortage` to check if the values mentioned in resources_avail is greater than or equal to the values given in resource_day if not, throw an error.
+Let's get to work and write some code. Declare a constant named `E_RESOURCE_SHORTAGE` of type `u64` which will store the error code `1`also create a function named `check_resourceShortage` to check if the values mentioned in resources_avail is greater than or equal to the values given in resource_day if not, throw an error.
 
 

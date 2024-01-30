@@ -5,7 +5,7 @@ module robinson::my_shore {
     use std::vector;
     use std:: error;
 
-    const RESOURCE_SHORTAGE: u64 = 1;
+    const E_RESOURCE_SHORTAGE: u64 = 1;
 
     struct GlobalData has key, drop {
         nb_tree: u8,
@@ -91,7 +91,7 @@ module robinson::my_shore {
     fun check_resourceShortage(r: &Resources){
         let (daily_food, daily_log) = resource_day();
         let (total_food, total_log) = resources_avail(r);
-        assert!((total_food>= daily_food && total_log>=daily_log), error:: not_found(RESOURCE_SHORTAGE));
+        assert!((total_food>= daily_food && total_log>=daily_log), error:: not_found(E_RESOURCE_SHORTAGE));
     }
     
     fun add_member(h: &mut House){ // comment the whole function so that it does not messes up the logic. 

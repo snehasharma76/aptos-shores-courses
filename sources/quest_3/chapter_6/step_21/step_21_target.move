@@ -3,7 +3,8 @@ module robinson::my_shore {
     use std::signer;
     use std::string::{String,utf8};
     use std::vector;
-    use std:: error;
+    use std::error;
+    use std::bcs;
 
     const E_RESOURCE_SHORTAGE: u64 = 1;
 
@@ -99,13 +100,20 @@ module robinson::my_shore {
     //   {
     //       abort 0;
     //   }
-    //   h.no_of_members= h.no_of_members + 1;
+    //   h.no_of_members = h.no_of_members + 1;
     // }
 
     fun add_member(h: &mut House){ 
-        assert! (h.no_of_members >= 4, 0)
+        assert! (h.no_of_members >= 4, 0);
         h.no_of_members = h.no_of_members + 1;
     }
     
+   fun change_name(new_name: String, data: &mut GlobalData, s: signer){
+        assert!(signer::address_of(&s) == @0x42, 0);
+        let byte: vector<u8> = bcs::to_bytes(&new_name);
+        data.island_name = utf8(byte);
+    }
+
+    const Min_trees: u8 = 20;
 }
 
