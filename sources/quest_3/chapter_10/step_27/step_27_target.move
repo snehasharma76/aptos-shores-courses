@@ -123,9 +123,6 @@ module robinson::my_shore {
         data.island_name = utf8(byte);
     }
 
-    /* This function takes a parameter data which acts as mutuable reference for GlobalData struct
-    It checks whether the number of trees i.e. `nb_tree` has a value less than 5 if "yes" it will increment the value of `nb-tree` by 1
-    Else it will increment the number of house i.e. `nb_house` by 1 and decrement `nb_tree` by the value stored in `Min_trees` */
     fun build_house(data: &mut GlobalData){
         if(data.nb_tree < 5){
             data.nb_tree = data.nb_tree + 1;
