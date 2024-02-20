@@ -1,5 +1,6 @@
 module robinson::my_shore {
-friend robinson::tour_guide;
+    
+    friend robinson::tour_guide;
 
     use std::signer;
     use std::string::{String,utf8};

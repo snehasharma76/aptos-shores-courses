@@ -1,4 +1,6 @@
 module robinson::my_shore {
+    
+//declare `tour_guide` as a friend under `my_shore` module
 
     use std::signer;
     use std::string::{String,utf8};
@@ -171,12 +173,13 @@ module robinson::my_shore {
     }
 
     //create a public(friend) function `daily_visitors()` of type u64 that returns the value `6`
+    
+}
+
     //create a module named `tour_guide` under the package `robinson`
-    //declare `tour_guide` as a friend under `my_shore` module
     //create a struct `TourData` with abilities key and drop with `nb_tourguide` of type u64 as a member.
     //create a function `create_tour` with parameter `tour_data` as a mutable reference to the `TourData` struct
     //declare a variable `daily_visitors` of type u64 which will call the `daily_visitors` function from `my_shore` module
     //check if (daily_visitors > 5)
     //increment nb_tourguide by 1
-}
 
