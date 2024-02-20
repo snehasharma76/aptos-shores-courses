@@ -133,16 +133,33 @@ module robinson::my_shore {
         print(&welcomeMessage);
     }
 
-    // create a function `print_dailyVisitors_usingloop` which takes a parameter `data` that acts as an immutable reference to `GlobalData` struct
-    // declare a variable `vec` of type `vector<u64>` that stores `daily_visitors`
-    // declare another variable `len` that stores the length of the previously declared vector `vec`
-    // declare a variable i and initialize it to 0, this variable will be used as a counter variable in the loop
-    // declare a loop that runs from i = 0 to i<len 
-    // check if `i < len` then continue 
-    // check if `i>=len` then break;
-    // declare a variable `visitor_today` to store the value from vector `vec` at a given index i by using `vector::borrow(&vector, index)`
-    // print `visitor_today`
-    // now increment the counter variable `i` by 1
+    fun print_dailyVisitors_usingloop(data: &GlobalData){
+        let vec:vector<u64> = data.daily_visitors;
+        let len:u64 = vector::length(&vec);
+        let i = 0;
+        loop {
+            if (i < len) continue;
+            if (i >= len) break;
+            let visitor_today = vector::borrow(&vec, i);
+            print(visitor_today);
+            i = i + 1;
+        };
+    }
+
+    fun print_dailyVisitors_usingwhile(data: &GlobalData){
+        let vec:vector<u64> = data.daily_visitors;
+        let len:u64 = vector::length(&vec);
+        let i = 0;
+        while (i < len) {
+            let visitor_today = vector::borrow(&vec, i);
+            print(visitor_today);
+        };
+    }
+
+    struct VisitorInfo<ID, Age> has store {
+        id: ID,
+        age: Age,
+    }
 
 }
 

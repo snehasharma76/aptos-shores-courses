@@ -1,4 +1,4 @@
-### Understanding Loops in Move
+### Understanding While Loop in Move
 
 In Move, we have two main types of loops:
 
