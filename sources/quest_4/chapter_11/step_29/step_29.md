@@ -1,38 +1,29 @@
-# Understanding Fungible Tokens in Move
+# Let's Start with Fungible Asset in Move
 
-Fungible tokens are assets with interchangeable and divisible units. Like dollars - any dollar buys the same amount. Units can also be split into fragments. This allows fungibles to be efficiently traded, managed, and tracked on blockchains.Common examples are cryptocurrencies or in-game coins.
-Aptos provides two distinct standards for token creation and management:
+When working with fungible assets in Move on Aptos, we need to import specific types and modules to define and manage these assets effectively. Here's a breakdown of what these imports do:
 
-- **Coin(Legacy)**
-- **Fungible Asset**
+1.  **aptos_framework::object::{Self, Object}:-**
+    -   **Self:** Refers to the specific type implementing a trait, likely representing the fungible asset itself.
+    -   **Object:** The base Object trait that all on-chain objects inherit from, providing common functionality.
 
-While Coin represents the older standard introduced during Aptos' mainnet launch, we will now explore the newer Fungible Asset standard and its features in detail.
+2.  **aptos_framework::primary_fungible_store:-**
+    -   Contains utilities for interacting with the primary on-chain store of fungible asset balances, offering functions for querying balances and transferring assets.
 
-#### Resource Management
+3.  **aptos_framework::fungible_asset::{Self, MintRef, FungibleAsset}:-**
+    -   **Self:** Another reference to the concrete fungible asset type.
+    -   **MintRef:** A reference to the mint capability for a fungible asset, allowing the creation of new units.
+    -   **FungibleAsset:** The core trait defining basic operations related to fungible assets, such as balance queries and asset transfers.
 
-The Aptos Fungible Asset standard uses two key resources for token management:
+4.  **std::option:-**
+    -   Provides a standard option type for encoding optional values, handling cases where a value may be present or absent.
 
-**Metadata Resource:** Holds fixed details like the token name, symbol, decimals. Needed for exchanges and UIs to display the token properly.
-**FungibleStore:** A resource that contains interchangeable units of a fungible token. Stores can be split/merged flexibly as needed.
-Using resources makes token capabilities modular.
+5.  **std::string::utf8:-**
+    -   Supports working with string values encoded in UTF-8 format, ensuring compatibility and proper encoding of string data.
 
-#### Key Functions
+6.  **std::signer:-**
+    -   Represents the signer type, containing information about the public key and signature authority of an on-chain actor sending a transaction, crucial for transaction verification.
 
-Using FA resources, developers can perform essential actions like:-
-
-- **Minting**: Creating new units of fungible tokens.
-- **Burning**: Removing existing units from circulation.
-- **Transferring**: Sending tokens between different storage locations.
-- **Splitting/Merging**: Dividing or combining tokens as needed.'
-
-These resources provide modular capabilities, allowing developers to organize and manage tokens effectively.
-
-#### Type Safety
-
-Move ensures type safety for fungible tokens:
--   **Custom Types**: Developers define specific types for their fungible tokens within their code.
--   **Runtime Checks**: Transactions involving these tokens are checked at runtime to ensure their validity, enhancing security and reliability.
+In essence, these imports lay the groundwork for defining and interacting with custom fungible assets in Move on the Aptos blockchain. By implementing the FungibleAsset trait, having a mint capability, and storing balances in the `primary_fungible_store`, developers can effectively manage and work with fungible assets.
 
 ---
-Too many jargon terms isn't it? It might sound a little too overwhelming and that is why we are starting with a blank canvas where we start working on the code of an entirely new quest learning about Fungible tokens and build our own fungible assets as we proceed with the course. In this quest we will first create a module, do a few imports and then finally declare all the functions that are required to create your own token. It is a long to-do list so get all geared up to create your own shore currency. First create a shoreCurrency package under module `robinson` then import `object` library from `aptos_framework`, `primary_fungible_store` from `aptos_framework` and `signer` from standard library. Once you are done with the imports we will move to function declaration. Start with declaring a function `init_module` with parameter `admin` as a signer. Then declare a entry function `mint` of public visibility specifier with parameter `admin` as signer, `to` as address type and `amount` of type u64. Similarly declare a entry function `transfer` of public visibility specifier with parameter `admin` as signer, `from` as address type, `to` as address type and `amount` of type u64 and for the last one declare a entry function `burn` of public visibility specifier with parameter `admin` as signer, `from` as address type and `amount` of type u64. 
-
+In this quest we will first create a module, do a few imports and then finally declare all the functions that are required to create your own token. It is a long to-do list so get all geared up to create your own shore currency. Let us start with creating a shoreCurrency package under module `robinson` then import `object` library and `primary_fungible_store` from `aptos_framework`, and finally `option`, `string::utf8` and `signer` from standard library. 

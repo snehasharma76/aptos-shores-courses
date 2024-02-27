@@ -8,13 +8,7 @@ module robinson::shoreCurrency {
     use std::signer;
 
 
-
     const ASSET_SYMBOL: vector<u8> = b"SH";
-
-    struct ManagedFungibleAsset has key {
-        mint_ref: MintRef,
-
-    }
 
     fun init_module(admin: &signer) {
         let constructor_ref = &object::create_named_object(admin, ASSET_SYMBOL);
@@ -28,18 +22,6 @@ module robinson::shoreCurrency {
             utf8(b""),
         );
         
-        let mint_ref = fungible_asset::generate_mint_ref(constructor_ref);
-        let metadata_object_signer = object::generate_signer(constructor_ref);
-        move_to(
-            &metadata_object_signer,
-            ManagedFungibleAsset {mint_ref}
-        )
     }
-
-    public entry fun mint(admin: &signer, to: address, amount: u64) {}
-
-    public entry fun transfer(admin: &signer, from: address, to: address, amount: u64) {}
-
-    public entry fun burn(admin: &signer, from: address, amount: u64) {}
 
 } 
