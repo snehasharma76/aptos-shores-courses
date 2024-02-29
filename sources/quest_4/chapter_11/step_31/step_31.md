@@ -20,24 +20,22 @@ The permissions required to manage fungible assets are referred to as "Refs," wi
 
 It's important to note that Refs cannot be copied and are exclusively created during the initial transaction where the metadata object is established. They cannot be duplicated or generated afterward. All Refs can be stored. As a reminder, resources can be freely added to objects, so the most convenient approach to store Refs is within a resource directly attached to the metadata object itself.
 
-For the time being let's just work with `mint_ref` and add the rest as we move forward with the course.
-
 ## Generating References
 
 Using the Aptos fungible asset framework, we generate these references:
-```rust
+```
 let mint_ref = fungible_asset::generate_mint_ref(constructor_ref);
 ```
 ## Creating a Unique Signer
 
 We create a unique signer to hold the resource:
-```rust
+```
 let metadata_object_signer = object::generate_signer(constructor_ref);
 ```
 ## Moving the Resource
 
 Finally, we move the assembled resource to this signer account:
-```rust
+```
 move_to(&metadata_object_signer, ManagedFungibleAsset {...});
 ```
 This approach centralizes control over the fungible asset within the resource. The references provide the flexibility to implement custom logic for minting, burning, and transferring. It ensures secure management by abstracting control privileges into a single access point, which can be selectively granted to designated actors.
