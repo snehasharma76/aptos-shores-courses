@@ -2,7 +2,7 @@ module robinson::shoreCurrency {
 
     use aptos_framework::object::{Self, Object};
     use aptos_framework::primary_fungible_store;
-    use aptos_framework::fungible_asset::{Self, MintRef, FungibleAsset};
+    use aptos_framework::fungible_asset::{Self, MintRef, Metadata, FungibleAsset}; //import TransferRef
     use std::option;
     use std::string::utf8;
     use std::signer;
@@ -13,6 +13,7 @@ module robinson::shoreCurrency {
 
     struct ManagedFungibleAsset has key {
         mint_ref: MintRef,
+        // create `transfer_ref` as member
 
     }
 
@@ -29,10 +30,11 @@ module robinson::shoreCurrency {
         );
         
         let mint_ref = fungible_asset::generate_mint_ref(constructor_ref);
+        // declare a variable `transfer_ref` which invokes `fungible_asset::generate_transfer_ref` with argument `constructor_ref`
         let metadata_object_signer = object::generate_signer(constructor_ref);
         move_to(
             &metadata_object_signer,
-            ManagedFungibleAsset {mint_ref}
+            ManagedFungibleAsset {mint_ref} //add `transfer_ref` as parameter
         )
     }
      
@@ -45,5 +47,12 @@ module robinson::shoreCurrency {
         fungible_asset::deposit_with_ref(&managed_fungible_asset.transfer_ref, to_wallet, fa);
     }
 
+    // Declare a function `transfer` with parameters admin as signer, to as the recipient address and amount(u64) using `acquires` keyword access `MangedFungibleAsset`
+    // Declare a local variable `asset_address` to store the address for the coin's metadata using `create_object_address(&@module_name, ASSET_SYMBOL)` from object library
+    // Declare a local variable asset to convert that to metadata object to access details using `address_to_object<Metadata>(asset_address)` from object library
+    // Declare a variable `transfer_ref` to allow admin signer to get access to transfer assets using `authorized_borrow_refs(admin, asset)`.transfer_ref
+    // Declare a variable `from_wallet` to check if the primary store of the fungible token exists using `primary_fungible_store::primary_store(from, asset)`
+    // Declare a variable `to_wallet` to check if the primary store of the fungible token exists using `primary_fungible_store::ensure_primary_store_exists(to, asset)`
+    // Transfer the minted coins from the sender's wallet into the recipient's wallet using `fungible_asset::transfer_with_ref(transfer_ref, from_wallet, to_wallet, amount);`
 
 } 
