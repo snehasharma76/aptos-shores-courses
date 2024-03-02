@@ -2,7 +2,7 @@ module robinson::shoreCurrency {
 
     use aptos_framework::object::{Self, Object};
     use aptos_framework::primary_fungible_store;
-    use aptos_framework::fungible_asset::{Self, MintRef, TransferRef, Metadata, FungibleAsset};
+    use aptos_framework::fungible_asset::{Self, MintRef, TransferRef, Metadata, FungibleAsset}; //import BurnRef
     use std::option;
     use std::string::utf8;
     use std::signer;
@@ -12,6 +12,7 @@ module robinson::shoreCurrency {
     struct ManagedFungibleAsset has key {
         mint_ref: MintRef,
         transfer_ref: TransferRef,
+         // create `burn_ref` as member
 
     }
 
@@ -29,10 +30,11 @@ module robinson::shoreCurrency {
         
         let mint_ref = fungible_asset::generate_mint_ref(constructor_ref);
         let transfer_ref = fungible_asset::generate_transfer_ref(constructor_ref);
+        // declare a variable `burn_ref` which invokes `fungible_asset::generate_burn_ref` with argument `constructor_ref`
         let metadata_object_signer = object::generate_signer(constructor_ref);
         move_to(
             &metadata_object_signer,
-            ManagedFungibleAsset {mint_ref, transfer_ref}
+            ManagedFungibleAsset {mint_ref, transfer_ref} //add `burn_ref` as parameter
         )
     }
 
@@ -57,5 +59,11 @@ module robinson::shoreCurrency {
         let to_wallet = primary_fungible_store::ensure_primary_store_exists(to, asset);
         fungible_asset::transfer_with_ref(transfer_ref, from_wallet, to_wallet, amount);
     }
+
+    // Declare an entry function `burn` with parameters admin as signer, from as the sender address and amount(u64) using `acquires` keyword access `MangedFungibleAsset`
+    // Declare a variable `asset` and call `get_metadata` function
+    // Declare a variable `burn_ref` to allow admin signer to burn assets using `authorized_borrow_refs(admin, asset)`.burn_ref
+    // Declare a variable `from_wallet` to check if the primary store of the fungible token exists using `primary_fungible_store::primary_store(from, asset)`
+    // Burn the minted coins using `fungible_asset::burn_from(burn_ref, from_wallet, amount);`
 
 } 

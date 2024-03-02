@@ -47,7 +47,7 @@ module robinson::shoreCurrency {
         fungible_asset::deposit_with_ref(&managed_fungible_asset.transfer_ref, to_wallet, fa);
     }
 
-    // Declare a function `transfer` with parameters admin as signer, to as the recipient address and amount(u64) using `acquires` keyword access `MangedFungibleAsset`
+    // Declare an entry function `transfer` with parameters admin as signer, to as the recipient address and amount(u64) using `acquires` keyword access `MangedFungibleAsset`
     // Declare a local variable `asset_address` to store the address for the coin's metadata using `create_object_address(&@module_name, ASSET_SYMBOL)` from object library
     // Declare a local variable asset to convert that to metadata object to access details using `address_to_object<Metadata>(asset_address)` from object library
     // Declare a variable `transfer_ref` to allow admin signer to get access to transfer assets using `authorized_borrow_refs(admin, asset)`.transfer_ref

@@ -2,7 +2,7 @@ module robinson::shoreCurrency {
 
     use aptos_framework::object::{Self, Object};
     use aptos_framework::primary_fungible_store;
-    use aptos_framework::fungible_asset::{Self, MintRef, TransferRef, Metadata, FungibleAsset};
+    use aptos_framework::fungible_asset::{Self, MintRef, TransferRef, BurnRef, Metadata, FungibleAsset};
     use std::option;
     use std::string::utf8;
     use std::signer;
@@ -12,6 +12,7 @@ module robinson::shoreCurrency {
     struct ManagedFungibleAsset has key {
         mint_ref: MintRef,
         transfer_ref: TransferRef,
+        burn_ref: BurnRef,
 
     }
 
@@ -29,10 +30,11 @@ module robinson::shoreCurrency {
         
         let mint_ref = fungible_asset::generate_mint_ref(constructor_ref);
         let transfer_ref = fungible_asset::generate_transfer_ref(constructor_ref);
+        let burn_ref = fungible_asset::generate_burn_ref(constructor_ref);
         let metadata_object_signer = object::generate_signer(constructor_ref);
         move_to(
             &metadata_object_signer,
-            ManagedFungibleAsset {mint_ref, transfer_ref}
+            ManagedFungibleAsset {mint_ref, transfer_ref, burn_ref}
         )
     }
 
@@ -50,12 +52,19 @@ module robinson::shoreCurrency {
         fungible_asset::deposit_with_ref(&managed_fungible_asset.transfer_ref, to_wallet, fa);
     }
 
-   public entry fun transfer(admin: &signer, from: address, to: address, amount: u64) acquires ManagedFungibleAsset {
+    public entry fun transfer(admin: &signer, from: address, to: address, amount: u64) acquires ManagedFungibleAsset {
         let asset = get_metadata();
         let transfer_ref = &authorized_borrow_refs(admin, asset).transfer_ref;
         let from_wallet = primary_fungible_store::primary_store(from, asset);
         let to_wallet = primary_fungible_store::ensure_primary_store_exists(to, asset);
         fungible_asset::transfer_with_ref(transfer_ref, from_wallet, to_wallet, amount);
+    }
+
+    public entry fun burn(admin: &signer, from: address, amount: u64) acquires ManagedFungibleAsset {
+        let asset = get_metadata();
+        let burn_ref = &authorized_borrow_refs(admin, asset).burn_ref;
+        let from_wallet = primary_fungible_store::primary_store(from, asset);
+        fungible_asset::burn_from(burn_ref, from_wallet, amount);
     }
 
 } 
