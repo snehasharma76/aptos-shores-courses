@@ -74,7 +74,7 @@ module robinson::shoreCurrency {
         fungible_asset::set_frozen_flag(transfer_ref, wallet, true);
     }
 
-    // Declare an entry function `unfreeze_account` with parameters admin as signer, and account of type address `acquires` keyword access `MangedFungibleAsset`
+    // Declare an entry function `unfreeze_account` with parameters admin as signer, and account of type address and using `acquires` keyword access `MangedFungibleAsset`
     // Declare a variable `asset` and call `get_metadata` function
     // Declare a variable `transfer_ref` to allow admin signer to get access to transfer assets using `authorized_borrow_refs(admin, asset)`.transfer_ref
     // Declare a variable `wallet` to check if the primary store of the fungible token exists using primary_fungible_store::ensure_primary_store_exists(account, asset);
