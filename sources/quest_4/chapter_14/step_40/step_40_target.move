@@ -6,6 +6,9 @@ module robinson::shoreCurrency {
     use std::option;
     use std::string::utf8;
     use std::signer;
+    use std::error;
+
+    const ENOT_OWNER: u64 = 1;
 
     const ASSET_SYMBOL: vector<u8> = b"SH";
 

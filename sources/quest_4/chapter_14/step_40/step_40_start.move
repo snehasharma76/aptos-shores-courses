@@ -6,6 +6,9 @@ module robinson::shoreCurrency {
     use std::option;
     use std::string::utf8;
     use std::signer;
+    //import error from standard library
+
+    //declare a constant `ENOT_OWNER` of type u64 of value `1`;
 
     const ASSET_SYMBOL: vector<u8> = b"SH";
 
@@ -95,6 +98,10 @@ module robinson::shoreCurrency {
         fungible_asset::deposit_with_ref(transfer_ref, to_wallet, fa);
     }
 
+    //declare an inline function `authorized_borrow_refs` with parameters owner acting as a reference to the signer, and asset representing `Object<Metadata>` 
+    //return an immutable reference to `ManagedFungibleAsset` resource, using `acquires` keyword access `ManagedFungibleAsset` from the function
+    //using assert keyword check  if the  `owner`  is indeed the owner of the  `asset`  metadata object if not an error is thrown using  `error::permission_denied(ENOT_OWNER)`.
+    //use borrow_global<ManagedFungibleAsset>(object::object_address(&asset)) to borrow the  `ManagedFungibleAsset`  resource from the global storage at the obtained address.
 
 
 } 
