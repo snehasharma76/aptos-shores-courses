@@ -84,7 +84,6 @@ module robinson::shoreCurrency {
     // Declare a function `withdraw` with parameters admin as signer, amount of type `u64` and from of type address which returns a value of type `FungibleAsset` and using `acquires` keyword access `MangedFungibleAsset`
     // Declare a variable `asset` and call `get_metadata` function
     // Declare a variable `transfer_ref` to allow admin signer to get access to transfer assets using `authorized_borrow_refs(admin, asset)`.transfer_ref
-    // Declare a variable `from_wallet` to check if the primary store of the fungible token exists using primary_fungible_store::primary_store(account, asset);
-    // using fungible_asset::set_frozen_flag(transfer_ref, wallet, false) to set the freeze account function of the account to `false` blocking all incoming or outgoing transfers. 
-
+    // Declare a variable `from_wallet` to check if the primary store of the fungible token exists using primary_fungible_store::primary_store(from, asset);
+    // using fungible_asset::withdraw_with_ref(transfer_ref, from_wallet, amount) withdraw assets of the amount specified.
 } 

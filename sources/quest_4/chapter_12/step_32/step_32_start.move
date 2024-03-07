@@ -38,7 +38,7 @@ module robinson::shoreCurrency {
     // Declare a local variable `asset_address` to store the address for the coin's metadata using `create_object_address(&@module_name, ASSET_SYMBOL)` from object library
     // Declare a local variable asset to convert that to metadata object to access details using `address_to_object<Metadata>(asset_address)` from object library
     // Declare a variable `managed_fungible_asset` to allow admin signer to get access to minting using `authorized_borrow_refs(admin, asset)`
-    // Declare a variable `to_wallet` to check if the primary store of the fungible token exists using `primary_fungible_store::ensure_primary_store_exists(to, asset)`
+    // Declare a variable `to_wallet` to check if the primary store of the fungible token exists or it will create one using `primary_fungible_store::ensure_primary_store_exists(to, asset)`
     // Declare a variable `fa` to mint new coins calling the `mint` function
     // Deposit newly minted coins into the recipient's wallet using `deposit_with_ref(&managed_fungible_asset.transfer_ref, to_wallet, fa)` from fungible_asset library;
 

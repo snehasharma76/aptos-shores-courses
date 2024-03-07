@@ -18,7 +18,7 @@ This capability is held in the resource managing fungible asset. By default, onl
 ## Implementing an unfreeze Function
 Freeze logic checks for authority, checks if primary store exists, and finally unfreeze the account, let me break it down for you,
 ```
-public entry fun unfreeze_account(admin: &signer, account: address) acquires ManagedFungibleAsset {
+public entry fun unfreeze_account(admin: &signer, account: address) acquires ManagedFungibleAsset 
 ```
 First we will declare a function burn and acquire `ManagedFungibleAsset`. Well we have already explained what `acquire` is so we can move on to the next line.
 ```

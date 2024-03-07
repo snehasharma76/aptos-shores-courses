@@ -17,7 +17,7 @@ This capability is held in the resource managing fungible asset. By default, onl
 ## Implementing a Burn Function
 Burn logic checks for authority, check for both the source wallet, and finally burns the coin from owner, let me break it down for you,
 ```
-public entry fun burn(admin: &signer, from: address, amount: u64) acquires ManagedFungibleAsset {
+public entry fun burn(admin: &signer, from: address, amount: u64) acquires ManagedFungibleAsset 
 ```
 First we will declare a function burn and acquire `ManagedFungibleAsset`. Well we have already explained what `acquire` is so we can move on to the next line.	
 ```

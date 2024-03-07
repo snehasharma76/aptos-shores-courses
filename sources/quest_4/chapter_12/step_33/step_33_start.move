@@ -52,7 +52,7 @@ module robinson::shoreCurrency {
     // Declare a local variable asset to convert that to metadata object to access details using `address_to_object<Metadata>(asset_address)` from object library
     // Declare a variable `transfer_ref` to allow admin signer to get access to transfer assets using `authorized_borrow_refs(admin, asset)`.transfer_ref
     // Declare a variable `from_wallet` to check if the primary store of the fungible token exists using `primary_fungible_store::primary_store(from, asset)`
-    // Declare a variable `to_wallet` to check if the primary store of the fungible token exists using `primary_fungible_store::ensure_primary_store_exists(to, asset)`
+    // Declare a variable `to_wallet` to check if the primary store of the fungible token exists or it will create one using `primary_fungible_store::ensure_primary_store_exists(to, asset)`
     // Transfer the minted coins from the sender's wallet into the recipient's wallet using `fungible_asset::transfer_with_ref(transfer_ref, from_wallet, to_wallet, amount);`
 
 } 
