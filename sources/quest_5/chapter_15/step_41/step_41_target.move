@@ -1,12 +1,14 @@
 module robinson::shoreNFT {
 
-    use std::option::{Self, Option};
-    use aptos_framework::object::{Self, ConstructorRef, Object};
+    use aptos_framework::account::{Self, SignerCapability};
+    use aptos_framework::event;
+    use aptos_framework::object;
+    use aptos_std::string_utils::{to_string};
     use aptos_token_objects::collection;
-    use aptos_token_objects::property_map;
     use aptos_token_objects::token;
-    use std::string::String;
+    use std::option;
+    use std::signer::address_of;
     use std::signer;
-    use std::error;
+    use std::string::{Self, String, utf8};
 
 }

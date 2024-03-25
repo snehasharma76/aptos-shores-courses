@@ -1,28 +1,29 @@
 module robinson::shoreNFT {
 
-    use std::option::{Self, Option};
-    use aptos_framework::object::{Self, ConstructorRef, Object};
+    use aptos_framework::account::{Self, SignerCapability};
+    use aptos_framework::event;
+    use aptos_framework::object;
+    use aptos_std::string_utils::{to_string};
     use aptos_token_objects::collection;
-    use aptos_token_objects::property_map;
     use aptos_token_objects::token;
-    use std::string::String;
+    use std::option;
+    use std::signer::address_of;
     use std::signer;
-    use std::error;
+    use std::string::{Self, String, utf8};
 
-    const COLLECTION_NAME: vector<u8> = b"ShoreID";
-    const COLLECTION_DESCRIPTION: vector<u8> = b"This is a NFT held by the people as an ID";
+    struct TokenIdentifier has key {
+        mutator_ref: token::MutatorRef,
+        burn_ref: token::BurnRef,
+    }
 
-    fun init_module(creator: &signer) {
-        let description = string::utf8(COLLECTION_DESCRIPTION);
-        let name = string::utf8(COLLECTION_NAME);
-        let uri = string::utf8(b"");
-        collection::create_unlimited_collection(
-            creator,
-            description,
-            name,
-            option::none(),
-            uri,
-        );
+    // Tokens require a signer to create, so this is the signer for the collection
+    struct CollectionCapability has key {
+        capability: SignerCapability,
+        burn_signer_capability: SignerCapability,
+    }
+
+    struct MintInfo has key {
+        count: u64,
     }
 
 }
