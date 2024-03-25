@@ -48,4 +48,12 @@ module robinson::shoreNFT {
         create_collection(&token_resource);
     }
 
+    // Define a function `create_collection` that takes a `&signer` as input.
+    // Inside the function body declare three variables `description`, `name` and `uri`
+    // Store "COLLECTION_DESCRIPTION" into variable `description` as type `string` using `string::utf8`
+    // Similarly, store "COLLECTION_NAME" in variable `name` and "COLLECTION_URI" in variable `uri`
+    // Call the `collection::create_unlimited_collection` function with arguments `creator`, `description`, `name`, `option::none()`, and `uri`
+    
+
+
 }

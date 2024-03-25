@@ -37,7 +37,7 @@ module robinson::shoreNFT {
     // Create another resource account using `account::create_resource_account` with `account` as the signer and `BURN_SIGNER_CAPABILITY_SEED` as the seed and store the returned tuple into a throwaway variable (`_`) and `burn_signer_capability`
     // Move the `CollectionCapability` struct with fields `capability` and `burn_signer_capability` to the `account` signer's storage
     // Move the `MintInfo` struct with field `count` initialized to `0` to the `account` signer's storage
-    // Call the `create_collection` function with `&token_resource` as an argument
+    // Call the `create_collection` function with `&token_resource` as an argument.
 
-    
+
 }

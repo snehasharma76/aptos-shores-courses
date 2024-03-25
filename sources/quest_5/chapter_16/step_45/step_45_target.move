@@ -48,4 +48,18 @@ module robinson::shoreNFT {
         create_collection(&token_resource);
     }
 
+    fun create_collection(creator: &signer) {
+        let description = string::utf8(COLLECTION_DESCRIPTION);
+        let name = string::utf8(COLLECTION_NAME);
+        let uri = string::utf8(COLLECTION_URI);
+
+        collection::create_unlimited_collection(
+            creator,
+            description,
+            name,
+            option::none(),
+            uri,
+        );
+    }
+
 }
