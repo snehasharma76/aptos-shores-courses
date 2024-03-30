@@ -16,7 +16,7 @@ module robinson::shoreNFT {
         burn_ref: token::BurnRef,
     }
 
-    // Tokens require a signer to create, so this is the signer for the collection
+   
     struct CollectionCapability has key {
         capability: SignerCapability,
         burn_signer_capability: SignerCapability,
