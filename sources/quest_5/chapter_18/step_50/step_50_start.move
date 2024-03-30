@@ -94,10 +94,10 @@ module robinson::shoreNFT {
         let transfer_ref = object::generate_transfer_ref(&constructor_ref);
         mint_info.count = next_count;
 
-        // Decalre a variable `token` construct a new `TokenIdentifier` struct with fields `mutator_ref` and `burn_ref` and initialize it to token
+        // Declare a variable `token` construct a new `TokenIdentifier` struct with fields `mutator_ref` and `burn_ref` and initialize it to token
         // Using `move_to` move the `TokenIdentifier` struct to the storage of the `token_signer`
-        // Generates a linear transfer reference from the transfer_ref using object::generate_linear_transfer_ref(transfer_ref).
-        /* Transfers the token to the user's address, passing the generated linear transfer reference and the user's address as arguments using 
+        // Generate a linear transfer reference from the transfer_ref using object::generate_linear_transfer_ref(transfer_ref).
+        /* Transfer the token to the user's address, passing the generated linear transfer reference and the user's address as arguments using 
         `object::transfer_with_ref(object::generate_linear_transfer_ref(transfer_ref), address_of(user))` where address_of(user) returns the address. */
 
 

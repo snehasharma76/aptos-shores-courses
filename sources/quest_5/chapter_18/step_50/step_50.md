@@ -33,3 +33,6 @@ This lesson illustrates the initialization of a token and its subsequent transfe
         -   The `object::transfer_with_ref()` function initiates the transfer, requiring two key inputs:
             -   The linear transfer reference obtained earlier.
             -   The address of the user, fetched using `address_of(user)`
+
+---
+I hope you are pumped up as we are staring with the last chapter of the NFT quest. The token has been created and now it is time you work on initializating the token as well as learn to transfer it. Declare a variable `token` construct a new `TokenIdentifier` struct with fields `mutator_ref` and `burn_ref` and initialize it to token, using `move_to` move the `TokenIdentifier` struct to the storage of the `token_signer`. Generate a linear transfer reference from the transfer_ref using object::generate_linear_transfer_ref(transfer_ref). Transfer the token to the user's address, passing the generated linear transfer reference and the user's address as arguments using `object::transfer_with_ref(object::generate_linear_transfer_ref(transfer_ref), address_of(user))` where address_of(user) returns the address. And you are done! Well done. See you in the next one :)

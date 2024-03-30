@@ -47,3 +47,6 @@ In summary, this code snippet sequentially performs the following steps:
 3.  Calculates the next count for the new token.
 4.  Appends a space and "#" to the token name.
 5.  Appends the next count to the token name.
+
+---
+It is fun creating your own token isn't it? Keep moving forward the finishing line is near. Let us look at the tasks in this lesson. First borrow the global `MintInfo` resource at the address `@robinson` as mutable.Get the current `count` value from the `MintInfo` resource and increment the `count` value by 1 and store it in `next_count`. Then append the string " #" to the `token_name` string and finally convert the `next_count` value to a string and append it to the `token_name` string. 

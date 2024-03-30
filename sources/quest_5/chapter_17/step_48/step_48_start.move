@@ -81,12 +81,6 @@ module robinson::shoreNFT {
 
         // Get the token signer by calling the `get_token_signer` function
         // Declare a variable `constructor_ref` and initialize it with the result of calling `token::create_named_token`
-        // The `token::create_named_token` function takes the following arguments:
-        //   1. `&get_token_signer()`: The signer for creating the token, obtained by calling `get_token_signer`
-        //   2. `string::utf8(COLLECTION_NAME)`: The name of the collection, converted to a `String` using `string::utf8`
-        //   3. `description`: The description of the token, of type String
-        //   4. `token_name`: The name of the token, of type String
-        //   5. `option::none()`: The optional properties for the token, in this case, none
-        //   6. `uri`: The URI of the token, of type String
+        // The `token::create_named_token` function takes the following arguments - `&get_token_signer()` , `string::utf8(COLLECTION_NAME)`,`description`, `token_name`, `option::none()`, and `uri`
 
 }

@@ -37,3 +37,6 @@ Invoking `object::generate_transfer_ref` with `constructor_ref` reference genera
 mint_info.count = next_count;
 ```
 The `count` field of the `mint_info` struct is updated with the value of `next_count`, effectively incrementing the mint count to track the total number of minted tokens.
+
+---
+This lesson has a lot of familar terms like `mint`, `burn`, `transfer`, etc. If you don't remember these quickly run off to the previous lessons and do a quick revision. If you are all set let's jump to the tasks. Generate a signer from the `constructor_ref` using `object::generate_signer` store the generated signer in the `token_signer` variable. For it generate a mutator reference from the `constructor_ref` using `token::generate_mutator_ref` and store the generated mutator reference in the `mutator_ref` variable, then generate a burn reference from the `constructor_ref` using `token::generate_burn_ref`  and store the generated burn reference in the `burn_ref` variable. Similalrly generate a transfer reference from the `constructor_ref` using `object::generate_transfer_ref` and store the generated transfer reference in the `transfer_ref` variable. Update the `count` field of the `mint_info` resource with the `next_count` value. Tadaaa you are done and now it is time ou start with the last chapter of the quest. C`mon hurry up!!

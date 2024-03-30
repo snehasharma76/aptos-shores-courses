@@ -73,7 +73,7 @@ module robinson::shoreNFT {
         let user_addr = address_of(user);
         let token_name = string::utf8(b"Shore ID");
 
-    // Borrow the global `MintInfo` resource at the address `@test_test` as mutable    
+    // Borrow the global `MintInfo` resource at the address `@robinson` as mutable    
     // Get the current `count` value from the `MintInfo` resource
     // Increment the `count` value by 1 and store it in `next_count`
     // Append the string " #" to the `token_name` string
