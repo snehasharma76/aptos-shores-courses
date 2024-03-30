@@ -62,4 +62,15 @@ module robinson::shoreNFT {
         );
     }
 
+    fun get_token_signer(): signer acquires CollectionCapability {
+        account::create_signer_with_capability(&borrow_global<CollectionCapability>(@robinson).capability)
+    }
+
+    public entry fun create_token(user: &signer) acquires CollectionCapability, MintInfo {
+
+        let uri = string::utf8(COLLECTION_URI);
+        let description = string::utf8(COLLECTION_DESCRIPTION);
+        let user_addr = address_of(user);
+        let token_name = string::utf8(b"Shore ID");
+
 }

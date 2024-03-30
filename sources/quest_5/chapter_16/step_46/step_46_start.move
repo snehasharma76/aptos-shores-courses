@@ -62,4 +62,16 @@ module robinson::shoreNFT {
         );
     }
 
+    // Define a function `get_token_signer` that returns a `signer` that acquires the global `CollectionCapability` resource
+    // Create a signer using `account::create_signer_with_capability` which accepts the SignerCapability as input.
+    // Retrieve immutable reference of `CollectionCapability` struct at address `robinson`
+
+
+    // Define a public entry function `create_token` that takes a `&signer` as input that also acquires the global `CollectionCapability` and `MintInfo` resources
+    // Inside the function body declare four variables `uri`, `description`, `user_addr` and `token_name`
+    // Store "COLLECTION_URI" into variable `uri` as type `string` using `string::utf8`
+    // Similarly, store "COLLECTION_DESCRIPTION" in variable `description` and "Shore ID" in variable `token_name` 
+    // For `user_addr` initialize it with the address of the `user`
+
+
 }

@@ -40,25 +40,6 @@ collection::create_unlimited_collection(
   - `uri`: The URI (Uniform Resource Identifier) for the collection's metadata.
 - This function creates a new unlimited collection with the specified details using the `creator` account.
 
-### Complete Code:
-
-```move
-fun create_collection(creator: &signer) {
-
-    let description = string::utf8(COLLECTION_DESCRIPTION);
-    let name = string::utf8(COLLECTION_NAME);
-    let uri = string::utf8(COLLECTION_URI);
-
-    collection::create_unlimited_collection(
-        creator,
-        description,
-        name,
-        option::none(),
-        uri,
-    );
-}
-```
-
 ---
 Let us look at collection. Define a function `create_collection` that takes a `&signer` as input inside the function body declare three variables `description`, `name` and `uri` store "COLLECTION_DESCRIPTION" into variable `description` as type `string` using `string::utf8`. Similarly, store "COLLECTION_NAME" in variable `name` and "COLLECTION_URI" in variable `uri`. In the end call the `collection::create_unlimited_collection` function with arguments `creator`, `description`, `name`, `option::none()`, and `uri`.
     
